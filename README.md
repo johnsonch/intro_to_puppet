@@ -10,3 +10,6 @@ $ gem install vagrant
 Next we need to generate the initial Vagrant file
 
 $ vagrant init
+
+
+To build out our word press blog install let's get our application server setup.
