@@ -8,6 +8,7 @@ Vagrant::Config.run do |config|
     app_config.vm.forward_port 22, 2222, :auto => true
     app_config.vm.forward_port 80, 4567
     app_config.vm.network :hostonly, "33.33.13.37"
+    app_config.vm.share_folder "freedom35", "/var/freedom35", "wordpress"
 
     app_config.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"
