@@ -4,3 +4,5 @@ Exec {
 include aptget
 include apache2
 include php
+include git
+include phpinfo
