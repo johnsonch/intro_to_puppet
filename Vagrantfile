@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
     # config.vm.box_url = "http://domain.com/path/to/above.box"
     #
     db_config.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-app"]
+      vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-db"]
     end
 
     db_config.vm.network :private_network, ip: "33.33.13.38"
