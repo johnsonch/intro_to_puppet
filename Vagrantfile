@@ -1,15 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-Vagrant::Config.run do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
 
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.customize ["modifyvm", :id, "--name", "tccc-app", "--memory","512"]
-  config.vm.box = "lucid32"
-  config.vm.host_name = "app"
-  config.vm.forward_port 22, 2222, :auto => true
-  config.vm.forward_port 80, 4567
-  config.vm.network :hostonly, "33.33.13.37"
+Vagrant.configure("2") do |config|
+  config.vm.box = "precise32"
+
+  config.vm.hostname = "app"
+  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-app"]
+  end
+
+
+  config.vm.network :forwarded_port, guest: 80, host: 4567
+  config.vm.network :private_network, ip: "33.33.13.37"
 end
