@@ -20,6 +20,7 @@ Vagrant.configure("2") do |config|
     app_config.vm.network :private_network, ip: "33.33.13.37"
 
     app_config.vm.provision :puppet do |puppet|
+      puppet.options = ["--verbose --debug"]
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path    = "puppet/modules"
       puppet.manifest_file  = "application.pp"
@@ -38,6 +39,7 @@ Vagrant.configure("2") do |config|
     db_config.vm.network :private_network, ip: "33.33.13.38"
 
     db_config.vm.provision :puppet do |puppet|
+      puppet.options = ["--verbose --debug"]
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path    = "puppet/modules"
       puppet.manifest_file  = "database.pp"
