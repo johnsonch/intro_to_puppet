@@ -1,11 +1,15 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+@box = "precise32"
+@box_url = "http://files.vagrantup.com/precise32.box"
+
 Vagrant.configure("2") do |config|
   config.vm.define "puppet-app" do |app_config|
-    app_config.vm.box = "precise32"
+    app_config.vm.box = @box
+    app_config.vm.box_url = @box_url 
 
     app_config.vm.hostname = "app"
-    # config.vm.box_url = "http://domain.com/path/to/above.box"
+    
     app_config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-app"]
     end
@@ -23,10 +27,10 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "puppet-db" do |db_config|
-    db_config.vm.box = "precise32"
+    db_config.vm.box = @box
+    db_config.vm.box_url = @box_url 
     db_config.vm.hostname = "db"
-    # config.vm.box_url = "http://domain.com/path/to/above.box"
-    #
+    
     db_config.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-db"]
     end
