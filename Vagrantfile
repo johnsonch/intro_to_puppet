@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-@box = "precise32"
+@box = "thatconference"
 @box_url = "http://files.vagrantup.com/precise32.box"
 Vagrant.configure("2") do |config|
   config.vm.box = @box
