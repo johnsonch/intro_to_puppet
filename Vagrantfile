@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "precise32"
+  config.vm.box = "thatconference"
 
   config.vm.hostname = "app"
   # config.vm.box_url = "http://domain.com/path/to/above.box"
