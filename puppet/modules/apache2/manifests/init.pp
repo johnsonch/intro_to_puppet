@@ -23,6 +23,11 @@ class apache2{
       notify => Service["apache2"],
       require => Package["apache2"]
   }
+  file { '/etc/apache2/sites-enabled/000-default': 
+    ensure => absent, 
+    require => Package["apache2"],
+    notify => Service["apache2"]
+  } 
   exec {'site-permission':
     command => 'sudo chmod -R 775 /var/freedom35'
   }
