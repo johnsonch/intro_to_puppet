@@ -5,7 +5,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "thatconference"
 
   config.vm.hostname = "app"
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "512", "--name", "puppet-app"]
   end
